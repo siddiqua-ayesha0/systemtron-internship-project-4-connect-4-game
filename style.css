@@ -1,0 +1,106 @@
+/* General Body and Page Layout */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    background-color: #f0f0f0; /* Light grey background for the page */
+    flex-direction: column; /* To stack elements vertically */
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between elements */
+    padding: 20px;
+    background-color: #fff; /* White background for the container */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Player Display */
+#player-display {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333; /* Default text color */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Game Board - The Connect Four Grid */
+.game-board {
+    background-color: #008080; /* Teal color for the board (Connect Four blue/green) */
+    display: grid;
+    /* Adjust these based on your board dimensions (e.g., 7 columns, 6 rows for standard Connect 4) */
+    grid-template-columns: repeat(7, 70px); /* 7 columns, each 70px wide */
+    grid-template-rows: repeat(6, 70px);   /* 6 rows, each 70px tall */
+    gap: 8px; /* Space between cells/holes */
+    padding: 10px; /* Padding inside the board */
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+}
+
+/* Individual Cells (The Holes) */
+.cell {
+    width: 60px; /* Smaller than grid track to create a gap */
+    height: 60px;
+    border-radius: 50%; /* Makes them perfectly circular */
+    background-color: #E0E0E0; /* Light grey for empty holes */
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border for definition */
+    box-sizing: border-box; /* Ensures padding/border are included in width/height */
+    cursor: pointer; /* Indicates it's clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for color changes */
+    position: relative; /* For potential future animations or effects */
+    overflow: hidden; /* Ensure inner content (like disc) stays within bounds */
+}
+
+/* Hover effect for columns (optional, for visual feedback) */
+.column-hover {
+    background-color: rgba(255, 255, 255, 0.3) !important; /* Slightly lighten column on hover */
+}
+
+
+/* Player Specific Disc Colors */
+/* These classes will be added by JavaScript to the '.cell' div */
+.player-1 {
+    background-color: #FF0000; /* Bright Red */
+}
+
+.player-2 {
+    background-color: #0000FF; /* Bright Blue */
+}
+
+/* Optional: If you expand to more players */
+.player-3 {
+    background-color: #FFD700; /* Gold/Yellow */
+}
+
+.player-4 {
+    background-color: #008000; /* Forest Green */
+}
+
+/* Reset Button */
+#reset-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background-color: #dc3545; /* Bootstrap-like danger red */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+#reset-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+#reset-button:active {
+    background-color: #bd2130;
+    transform: translateY(0); /* Return to original position on click */
+}
